@@ -1,0 +1,45 @@
+.edit-contact-form {
+  width: 400px;
+  margin: 0 auto;
+  padding: 40px 50px 40px 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.edit-contact-form h2 {
+  margin: 0px 0px 20px 0px;
+  display: flex;
+  justify-content: center;
+}
+.edit-contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+.edit-contact-form form label {
+  margin-bottom: 8px;
+}
+.edit-contact-form form label input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.edit-contact-form form .edit-form-btn {
+  display: flex;
+  justify-content: center;
+}
+.edit-contact-form form .edit-form-btn button {
+  background: rgb(137, 4, 137);
+  color: #fff;
+  margin-top: 10px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: large;
+}
+.edit-contact-form form .edit-form-btn button:hover {
+  background: rgb(11, 236, 11);
+  color: #000;
+  border-radius: 20px;
+}/*# sourceMappingURL=UpdateContact.css.map */

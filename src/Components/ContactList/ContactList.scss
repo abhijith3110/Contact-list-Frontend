@@ -1,0 +1,150 @@
+$primaryColor: #3498db;
+$hoverColor: #0083da;
+$buttonHoverColor: rgba(0, 128, 0, 0.77);
+
+.contact-table {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contact-table-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: $primaryColor;
+    color: #fff;
+  }
+
+  tr {
+    &:hover {
+      background: rgba(204, 204, 204, 0.2941176471);
+    }
+
+    button {
+      color: #fff;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      margin-right: 5px;
+
+      &:hover {
+        border-radius: 10px;
+      }
+    }
+    .contact-edit-btn {
+      background: rgb(13, 13, 205);
+      &:hover {
+        background: rgba(0, 0, 255, 0.723);
+      }
+    }
+    .contact-del-btn {
+      background: rgb(205, 13, 13);
+      &:hover {
+        background: rgba(202, 14, 20, 0.985);
+      }
+    }
+  }
+}
+
+.addContact-btn-div {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: $primaryColor;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    font-size: large;
+
+    &:hover {
+      background: $buttonHoverColor;
+      border-radius: 20px;
+    }
+  }
+}
+
+.addform-component {
+  position: absolute;
+  top: 0px;
+  left: 550px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 500px;
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 10px;
+  }
+}
+
+.search-add-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  .active {
+    background-color: #008cba;
+  }
+}
+
+.edit-conatact-form {
+  position: absolute;
+  top: 30px;
+  left: 550px;
+}
+
+.delete-contact-component {
+  position: absolute;
+  top: 80px;
+  left: 550px;
+}
+.no-data-search {
+  color: $primaryColor;
+}

@@ -1,0 +1,48 @@
+.Delete-contact-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Delete-contact-div .delete-contact {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  height: 250px;
+  padding: 20px;
+  border-radius: 20px;
+}
+.Delete-contact-div .delete-contact .delete-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.Delete-contact-div .delete-contact .delete-heading h1 {
+  color: rgb(233, 10, 10);
+  font-size: 1.5em;
+}
+.Delete-contact-div .delete-contact .delete-contant {
+  text-align: center;
+}
+.Delete-contact-div .delete-contact .delete-contant h4 {
+  color: #555;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+.Delete-contact-div .delete-contact .delete-contant .delete-btn button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  margin: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: large;
+}
+.Delete-contact-div .delete-contact .delete-contant .btn-delete {
+  color: #fff;
+  background: rgb(244, 4, 4);
+}
+.Delete-contact-div .delete-contact .delete-contant .btn-delete:hover {
+  background: rgba(168, 0, 0, 0.574);
+  border-radius: 20px;
+}/*# sourceMappingURL=DeleteContact.css.map */

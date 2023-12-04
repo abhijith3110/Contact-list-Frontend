@@ -1,0 +1,134 @@
+.contact-table {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contact-table-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+table th {
+  background-color: #3498db;
+  color: #fff;
+}
+table tr:hover {
+  background: rgba(204, 204, 204, 0.2941176471);
+}
+table tr button {
+  color: #fff;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+table tr button:hover {
+  border-radius: 10px;
+}
+table tr .contact-edit-btn {
+  background: rgb(13, 13, 205);
+}
+table tr .contact-edit-btn:hover {
+  background: rgba(0, 0, 255, 0.723);
+}
+table tr .contact-del-btn {
+  background: rgb(205, 13, 13);
+}
+table tr .contact-del-btn:hover {
+  background: rgba(202, 14, 20, 0.985);
+}
+
+.addContact-btn-div {
+  display: flex;
+  justify-content: flex-end;
+}
+.addContact-btn-div button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #3498db;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  font-size: large;
+}
+.addContact-btn-div button:hover {
+  background: rgba(0, 128, 0, 0.77);
+  border-radius: 20px;
+}
+
+.addform-component {
+  position: absolute;
+  top: 0px;
+  left: 550px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 500px;
+}
+.search-bar input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.search-add-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.pagination button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.pagination .active {
+  background-color: #008cba;
+}
+
+.edit-conatact-form {
+  position: absolute;
+  top: 30px;
+  left: 550px;
+}
+
+.delete-contact-component {
+  position: absolute;
+  top: 80px;
+  left: 550px;
+}
+
+.no-data-search {
+  color: #3498db;
+}/*# sourceMappingURL=ContactList.css.map */
