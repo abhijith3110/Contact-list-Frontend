@@ -8,15 +8,15 @@ import "./UpdateContact.css";
 
 const UpdateContact = ({ selectedContact, onCloseForm, searchTerm, page }) => {
   const dispatch = useDispatch();
-  const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', phn_number: '', });
+  const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', phn_number: '' });
 
   useEffect(() => {
     if (selectedContact) {
       setFormData({
-        first_name: selectedContact.first_name || '',
-        last_name: selectedContact.last_name || '',
-        email: selectedContact.email || '',
-        phn_number: selectedContact.phn_number || '',
+        first_name: selectedContact.first_name,
+        last_name: selectedContact.last_name,
+        email: selectedContact.email,
+        phn_number: selectedContact.phn_number,
       });
     }
   }, [selectedContact]);
@@ -24,10 +24,7 @@ const UpdateContact = ({ selectedContact, onCloseForm, searchTerm, page }) => {
 
   const handleChangeData = (e) => {
     const { id, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [id]: value,
-    }));
+    setFormData((prevFormData) => ({ ...prevFormData, [id]: value, }));
   };
 
   const customToastStyle = {
@@ -46,7 +43,6 @@ const UpdateContact = ({ selectedContact, onCloseForm, searchTerm, page }) => {
       });
     }
   };
-
 
   const closeForm = () => {
     onCloseForm();

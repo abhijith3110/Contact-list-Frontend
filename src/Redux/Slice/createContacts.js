@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
 export const createContact = createAsyncThunk("createContact", async (data) => {
   try {
     const response = await axios.post("http://localhost:5000/contacts/api", data);
@@ -11,10 +12,11 @@ export const createContact = createAsyncThunk("createContact", async (data) => {
   }
 });
 
+
 const initialState = {
   createContactData: {
     isLoading: false,
-    data: [],
+    conatactData: [],
     isError: false,
   },
 };
@@ -30,7 +32,7 @@ const contactSlice = createSlice({
 
     builder.addCase(createContact.fulfilled, (state, action) => {
       state.createContactData.isLoading = false;
-      state.createContactData.data.push(action.payload);
+      state.createContactData.conatactData.push(action.payload);
       state.createContactData.isError = false;
     });
 

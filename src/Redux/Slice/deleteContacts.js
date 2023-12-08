@@ -1,6 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const initialState = {
+  isLoading: false,
+  conatactData: [],
+  isError: false,
+  errorMessage: ""
+}
 
 export const deleteContact = createAsyncThunk("deleteContact", async (contactId) => {
   try {
@@ -14,16 +20,8 @@ export const deleteContact = createAsyncThunk("deleteContact", async (contactId)
 
 const contactSlice = createSlice({
   name: "deleteContacts",
-
-  initialState: {
-    isLoading: false,
-    data: [],
-    isError: false,
-    errorMessage: "",
-  },
-
+  initialState,
   reducers: {},
-
   extraReducers: (builder) => {
     builder.addCase(deleteContact.pending, (state) => {
       state.isLoading = true;
@@ -31,7 +29,7 @@ const contactSlice = createSlice({
 
     builder.addCase(deleteContact.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.data = state.data.filter((contact) => contact.id_contact_list !== action.payload);
+      state.conatactData = state.conatactData.filter((contact) => contact.id_contact_list !== action.payload);
       state.isError = false;
     });
 

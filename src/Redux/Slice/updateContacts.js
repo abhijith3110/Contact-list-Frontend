@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
 export const updateContacts = createAsyncThunk("updateContacts", async ({ contactID, updatedData }) => {
     try {
         const response = await axios.put(`http://localhost:5000/contacts/api/${contactID}`, updatedData);
@@ -14,7 +15,7 @@ export const updateContacts = createAsyncThunk("updateContacts", async ({ contac
 
 const initialState = {
     isLoading: false,
-    data: [],
+    conatactData: [],
     isError: false,
 };
 
@@ -30,7 +31,7 @@ const contactSlice = createSlice({
 
         builder.addCase(updateContacts.fulfilled, (state, action) => {
             state.isLoading = false;
-            state.data = state.data.map((contact) =>
+            state.conatactData = state.conatactData.map((contact) =>
                 contact.id_contact_list === action.payload.id_contact_list ? action.payload : contact
             );
             state.isError = false;

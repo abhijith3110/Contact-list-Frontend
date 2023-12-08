@@ -14,40 +14,29 @@ const AddContact = ({ onCloseForm, searchTerm, page }) => {
         background: 'green',
     };
 
-    const [formData, setFormData] = useState({
-        first_name: '',
-        last_name: '',
-        email: '',
-        phn_number: '',
-    });
+    const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', phn_number: '' });
     const [errors, setErrors] = useState({});
 
     const handleChangeData = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.id]: e.target.value,
-        });
-        setErrors({
-            ...errors,
-            [e.target.id]: '',
-        });
+        setFormData({ ...formData, [e.target.id]: e.target.value, });
+        setErrors({ ...errors, [e.target.id]: '', });
     };
 
     const validateForm = () => {
         let valid = true;
         const newErrors = {};
 
-        if (!formData.first_name.trim()) {
+        if (!formData.first_name) {
             newErrors.first_name = 'First Name is required';
             valid = false;
         }
 
-        if (!formData.last_name.trim()) {
+        if (!formData.last_name) {
             newErrors.last_name = 'Last Name is required';
             valid = false;
         }
 
-        if (!formData.email.trim()) {
+        if (!formData.email) {
             newErrors.email = 'Email is required';
             valid = false;
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
@@ -55,7 +44,7 @@ const AddContact = ({ onCloseForm, searchTerm, page }) => {
             valid = false;
         }
 
-        if (!formData.phn_number.trim()) {
+        if (!formData.phn_number) {
             newErrors.phn_number = 'Phone Number is required';
             valid = false;
         } else if (!/^\d{10}$/.test(formData.phn_number.trim())) {

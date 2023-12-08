@@ -63,9 +63,10 @@ table tr .contact-del-btn:hover {
   color: #fff;
   border-radius: 10px;
   font-size: large;
+  margin-right: 25px;
 }
 .addContact-btn-div button:hover {
-  background: rgba(0, 128, 0, 0.77);
+  background: #0083da;
   border-radius: 20px;
 }
 
@@ -79,6 +80,7 @@ table tr .contact-del-btn:hover {
   display: flex;
   align-items: center;
   width: 500px;
+  margin-left: 25px;
 }
 .search-bar input {
   padding: 10px;
@@ -100,7 +102,7 @@ table tr .contact-del-btn:hover {
   margin-top: 20px;
 }
 .pagination button {
-  background-color: #4caf50;
+  background-color: #3498db;
   color: #fff;
   padding: 10px;
   margin: 0 5px;
@@ -114,7 +116,7 @@ table tr .contact-del-btn:hover {
   cursor: not-allowed;
 }
 .pagination .active {
-  background-color: #008cba;
+  background-color: rgba(0, 128, 0, 0.77);
 }
 
 .edit-conatact-form {

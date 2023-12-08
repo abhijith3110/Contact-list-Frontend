@@ -74,9 +74,10 @@ table {
     color: #fff;
     border-radius: 10px;
     font-size: large;
+    margin-right: 25px;
 
     &:hover {
-      background: $buttonHoverColor;
+      background:$hoverColor;
       border-radius: 20px;
     }
   }
@@ -92,6 +93,7 @@ table {
   display: flex;
   align-items: center;
   width: 500px;
+  margin-left: 25px;
 
   input {
     padding: 10px;
@@ -114,7 +116,7 @@ table {
   margin-top: 20px;
 
   button {
-    background-color: #4caf50;
+    background-color:$primaryColor;
     color: #fff;
     padding: 10px;
     margin: 0 5px;
@@ -130,7 +132,7 @@ table {
   }
 
   .active {
-    background-color: #008cba;
+    background-color:$buttonHoverColor;
   }
 }
 

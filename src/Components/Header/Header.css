@@ -3,8 +3,14 @@
   color: #fff;
   padding: 10px;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .contact-list-header h1 {
   margin: 10px;
   font-weight: 700;
+}
+.contact-list-header p {
+  margin: 22px 0px 0px 0px;
+  font-size: large;
 }/*# sourceMappingURL=Header.css.map */

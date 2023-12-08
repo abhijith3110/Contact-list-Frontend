@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   isLoading: false,
-  data: [],
+  conatactData: [],
   isError: false,
   errorMessage: "",
   page: 1,
@@ -12,19 +12,15 @@ const initialState = {
   searchTerm: "",
 };
 
-export const fetchContacts = createAsyncThunk(
-  "fetchContact",
-  async ({ page, limit, searchTerm }) => {
-    try {
-      const response = await axios.get(
-        `http://localhost:5000/contacts/api?page=${page}&limit=${limit}&searchTerm=${searchTerm}`
-      );
-      return response.data;
-    } catch (error) {
-      console.error("Error", error);
-      throw error;
-    }
+export const fetchContacts = createAsyncThunk("fetchContact", async ({ page, limit, searchTerm }) => {
+  try {
+    const response = await axios.get(`http://localhost:5000/contacts/api?page=${page}&limit=${limit}&searchTerm=${searchTerm}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error", error);
+    throw error;
   }
+}
 );
 
 const contactSlice = createSlice({
@@ -38,9 +34,9 @@ const contactSlice = createSlice({
 
     builder.addCase(fetchContacts.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.data = action.payload.data;
+      state.conatactData = action.payload.conatactData;
       state.totalPages = action.payload.totalPages;
-      state.page = action.payload.page;
+      state.total = action.payload.total;
       state.isError = false;
     });
 

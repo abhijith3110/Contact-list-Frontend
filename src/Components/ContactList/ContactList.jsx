@@ -10,7 +10,7 @@ import "./ContactList.css";
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const { data,totalPages,page } = useSelector((state) => state.contacts);
+  const { conatactData, totalPages } = useSelector((state) => state.contacts);
   const [isAddContactVisible, setAddContactVisible] = useState(false);
   const [selectedContact, setSelectedContact] = useState([]);
   const [isUpdateContactVisible, setUpdateContactVisible] = useState(false);
@@ -18,13 +18,14 @@ const ContactList = () => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [deleteID, setDeleteID] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage] = useState(1);
 
 
   useEffect(() => {
     dispatch(fetchContacts({ page, searchTerm }));
-  }, [dispatch, page,searchTerm]);
-  console.log(data);
-  
+  }, [dispatch, page, searchTerm]);
+  console.log(conatactData);
+
 
   const handleDeleteModal = (id) => {
     setDeleteModal(true);
@@ -39,7 +40,7 @@ const ContactList = () => {
 
   const handleUpdate = (contactId) => {
     handleUpdateContactClick();
-    const contactToUpdate = data.find((contact) => contact.id_contact_list === contactId);
+    const contactToUpdate = conatactData.find((contact) => contact.id_contact_list === contactId);
     setSelectedContact(contactToUpdate);
   };
 
@@ -60,22 +61,27 @@ const ContactList = () => {
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
+    setPage(1);
   };
-  
+
   const handleChangePage = (newPage) => {
     if (newPage !== page) {
-      dispatch(fetchContacts({ page: newPage, searchTerm }));
+      setPage(newPage)
     }
   };
-  
-  const pageNumbers = Array.from({length: totalPages }, (_, index) => index + 1);
 
+  const contactsPerPage = 5;
+  const calculateSerialNumber = (index) => {
+    return (page - 1) * contactsPerPage + index + 1;
+  };
+
+  const pageNumbers = Array.from({ length: totalPages }, (_,index) => index + 1);
 
   return (
     <div className="contact-table">
       <div className="search-add-div">
         <div className="search-bar">
-          <input type="text" placeholder="Search contacts" value={searchTerm} onChange={handleSearchChange} />
+          <input type="search" placeholder="Search contacts" value={searchTerm} onChange={handleSearchChange} />
         </div>
         <div className="addContact-btn-div">
           <button className="addContact-btn" onClick={handleAddContactClick}>
@@ -83,9 +89,9 @@ const ContactList = () => {
           </button>
         </div>
       </div>
-      {data.length === 0 && <h1 className="no-data-search">No contacts found</h1>}
-      {data.length > 0 && (
-        <>
+      {conatactData.length === 0 && <h1 className="no-data-search">No contacts found</h1>}
+      {conatactData.length > 0 && (
+        <div className="contact-table">
           <table>
             <thead>
               <tr>
@@ -98,9 +104,9 @@ const ContactList = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((contact, index) => (
+              {conatactData.map((contact, index) => (
                 <tr key={index}>
-                  <td>{index + 1}</td>
+                  <td>{calculateSerialNumber(index)}</td>
                   <td>
                     {contact.first_name} {contact.last_name}
                   </td>
@@ -123,35 +129,35 @@ const ContactList = () => {
             </tbody>
           </table>
 
-{/* paginations */}
+          {/* paginations */}
 
-        <div className="pagination">
-        <button className="paginate_btn" onClick={() => handleChangePage(page - 1)} disabled={page===1}>
-          Previous
-        </button>
-          {pageNumbers.map((pageNumber) => (
-            <button id="buttonNumber" key={pageNumber} onClick={() => handleChangePage(pageNumber)} className={`${pageNumber === page ? "active" : ""}`}>
-              {pageNumber}
+          <div className="pagination">
+            <button className="paginate_btn" onClick={() => handleChangePage(page - 1)} disabled={page === 1}>
+              Previous
             </button>
-          ))}
-        <button className="paginate_btn"onClick={() => handleChangePage(page + 1)}disabled={page>=totalPages}>
-          Next
-        </button>
-        </div>
-        
-{/* CRUD COMPONENTS */}
+            {pageNumbers.map((pageNumber) => (
+              <button id="buttonNumber" key={pageNumber} onClick={() => handleChangePage(pageNumber)} className={`${pageNumber === page ? "active" : ""}`}>
+                {pageNumber}
+              </button>
+            ))}
+            <button className="paginate_btn" onClick={() => handleChangePage(page + 1)} disabled={page >= totalPages}>
+              Next
+            </button>
+          </div>
+
+          {/* CRUD COMPONENTS */}
 
           {deleteModal && overlay && <Overlay />}
           <div className="delete-contact-component">
             {deleteModal && overlay && (
-              <DeleteContact deleteID={deleteID} deleteModal={deleteModal} setDeleteModal={setDeleteModal} searchTerm={searchTerm} page={page}/>
+              <DeleteContact deleteID={deleteID} deleteModal={deleteModal} setDeleteModal={setDeleteModal} searchTerm={searchTerm} page={page} />
             )}
           </div>
 
           {isAddContactVisible && overlay && <Overlay />}
           <div className="addform-component">
             {isAddContactVisible && overlay && (
-              <AddContact onCloseForm={handleCloseAddContactForm} searchTerm={searchTerm} page={page}/>
+              <AddContact onCloseForm={handleCloseAddContactForm} searchTerm={searchTerm} page={page} />
             )}
           </div>
 
@@ -161,7 +167,7 @@ const ContactList = () => {
               <UpdateContact selectedContact={selectedContact} onCloseForm={handleCloseUpdateContactForm} searchTerm={searchTerm} page={page} />
             )}
           </div>
-        </>
+        </div>
       )}
     </div>
   );
